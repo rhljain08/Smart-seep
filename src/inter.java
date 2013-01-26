@@ -53,8 +53,8 @@ class Inter extends JPanel
 	    single=new JButton();
 	    multi=new JButton();
 	    mode=new JButton();
-	    host=new JButton("HOST a GAME");
-	    join=new JButton("JOIN a GAME");
+	    host=new JButton();
+	    join=new JButton();
 	    p2=new JRadioButton("TWO PLAYER",true);
 	    p3=new JRadioButton("THREE PLAYER",true);
 	    p4=new JRadioButton("FOUR PLAYER",true);
@@ -148,6 +148,29 @@ class Inter extends JPanel
     			Inter.this.add(join);
     			host.setBounds((int)(Start.setx*0.15),(int)(Start.sety*0.5),(int)(Start.setx*0.19),(int)(Start.sety*0.13));
     			join.setBounds((int)(Start.setx*0.15),(int)(Start.sety*0.7),(int)(Start.setx*0.19),(int)(Start.sety*0.13));
+    			try 
+    		    {
+    		        Image imgbtn = ImageIO.read(getClass().getResource("host.jpg"));
+    		        Image resizedImage = imgbtn.getScaledInstance(host.getWidth(), host.getHeight(),Image.SCALE_SMOOTH);
+    		        host.setIcon(new ImageIcon(resizedImage));   		    
+    		        
+    		    } 
+    		    catch (IOException ex) 
+    		    {
+    		    }
+    			host.setBorder(BorderFactory.createEmptyBorder());
+    			try 
+    		    {
+    		        Image imgbtn = ImageIO.read(getClass().getResource("join.jpg"));
+    		        Image resizedImage = imgbtn.getScaledInstance(join.getWidth(), join.getHeight(),Image.SCALE_SMOOTH);
+    		        join.setIcon(new ImageIcon(resizedImage));
+    		    
+    		        
+    		    } 
+    		    catch (IOException ex) 
+    		    {
+    		    }
+    			join.setBorder(BorderFactory.createEmptyBorder());
     			repaint();
     			
     		}
@@ -159,6 +182,23 @@ class Inter extends JPanel
     			p3.setBounds((int)(Start.setx*0.15),(int)(Start.sety*0.6),(int)(Start.setx*0.15),(int)(Start.sety*0.07));
     			p4.setBounds((int)(Start.setx*0.15),(int)(Start.sety*0.7),(int)(Start.setx*0.15),(int)(Start.sety*0.07));
     			mode.setBounds((int)(Start.setx*0.15),(int)(Start.sety*0.8),(int)(Start.setx*0.15),(int)(Start.sety*0.07));
+    			
+    			Inter.this.add(p2);
+    			Inter.this.add(p3);
+    			Inter.this.add(p4);
+    			Inter.this.add(mode);
+    			try 
+    		    {
+    		        Image imgbtn = ImageIO.read(getClass().getResource("three.jpg"));
+    		        Image resizedImage = imgbtn.getScaledInstance(p2.getWidth(), p2.getHeight(),Image.SCALE_SMOOTH);
+    		        p2.setIcon(new ImageIcon(resizedImage));
+    		    
+    		        
+    		    } 
+    		    catch (IOException ex) 
+    		    {
+    		    }
+    			p2.setBorder(BorderFactory.createEmptyBorder());
     			try 
     		    {
     		        Image imgbtn = ImageIO.read(getClass().getResource("next.jpg"));
@@ -171,10 +211,6 @@ class Inter extends JPanel
     		    {
     		    }
     			mode.setBorder(BorderFactory.createEmptyBorder());
-    			Inter.this.add(p2);
-    			Inter.this.add(p3);
-    			Inter.this.add(p4);
-    			Inter.this.add(mode);
     			repaint();
     		}
     		else if(e.getSource()==join)
